@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: patient-service
+              uri: lb://patient-service
+              predicates:
+                - Path=/patients/**
+
+            - id: provider-service
+              uri: lb://provider-service
+              predicates:
+                - Path=/providers/**
+
+            - id: claims-service
+              uri: lb://claims-service
+              predicates:
+                - Path=/claims/**
