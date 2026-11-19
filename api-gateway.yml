@@ -21,3 +21,7 @@ spring:
               uri: lb://claims-service
               predicates:
                 - Path=/claims/**
+            - id: notification-service
+              uri: lb://notification-service
+              predicates:
+                - Path=/notifications/**
